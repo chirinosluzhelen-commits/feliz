@@ -1,0 +1,489 @@
+<!doctype html>
+<html>
+    <head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Para mi hermano</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Jost:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&display=swap">
+<style>
+/* Concepto: un solo viaje de la noche al amanecer. Al bajar por la página el cielo
+   pasa de azul profundo a un amanecer violeta y brasa, las estrellas se apagan
+   y el sol sale al final con la bendición. Tocar cualquier parte lanza destellos. */
+:root{
+  --night:#0a0e2b;
+  --indigo:#1b1f5c;
+  --dusk:#4a2459;
+  --ember:#9a3f55;
+  --gold:#f0c06a;
+  --pearl:#fff3cf;
+  --rose:#f4a6a0;
+  --paper:#f6efe2;
+  --mist:#c3c9f0;
+  --line:rgba(240,192,106,.30);
+  --glass:rgba(12,16,52,.42);
+  --f-script:"Pinyon Script","Snell Roundhand","Brush Script MT",cursive;
+  --f-body:"Jost","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-verse:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --p:0;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  background:var(--night);
+  color:var(--paper);
+  font-family:var(--f-body);
+  font-size:1.0625rem;
+  line-height:1.75;
+  font-weight:400;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0;
+  overflow-x:hidden;
+}
+
+/* Cielo */
+.sky{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#060920 0%,#0d1240 55%,var(--indigo) 100%);pointer-events:none}
+.sky::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--indigo) 0%,var(--dusk) 58%,var(--ember) 100%);opacity:var(--p)}
+.aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.aurora::before,.aurora::after{content:"";position:absolute;width:75vmax;height:75vmax;border-radius:50%;filter:blur(50px)}
+.aurora::before{left:-30vmax;top:-25vmax;background:radial-gradient(circle,rgba(110,92,230,.38),transparent 66%);animation:drift1 26s ease-in-out infinite alternate}
+.aurora::after{right:-35vmax;top:25vh;background:radial-gradient(circle,rgba(240,150,120,.22),transparent 66%);animation:drift2 32s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(14vmax,10vmax)}}
+@keyframes drift2{to{transform:translate(-12vmax,-8vmax)}}
+.sun{position:fixed;left:50%;bottom:-34vmax;width:90vmax;height:90vmax;max-width:1100px;max-height:1100px;transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(255,220,150,.9) 0%,rgba(244,160,104,.38) 34%,rgba(244,160,104,0) 68%);
+  opacity:calc(var(--p) * var(--p));z-index:0;pointer-events:none}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+main{position:relative;z-index:1;max-width:46rem;margin-inline:auto}
+section{display:flex;flex-direction:column;gap:1.4rem;padding-block:clamp(2.6rem,7vw,4.5rem)}
+section.pre{transform:translateY(30px)}
+section{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+
+.eyebrow{margin:0;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h2{margin:0;font-family:var(--f-verse);font-weight:500;font-size:clamp(1.9rem,5.4vw,2.7rem);line-height:1.15;text-wrap:balance}
+p{margin:0}
+
+.panel{position:relative;padding:clamp(1.5rem,5vw,2.8rem);border:1px solid var(--line);border-radius:22px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),var(--glass);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:0 20px 60px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,243,207,.12)}
+
+/* Portada */
+.hero{align-items:center;text-align:center;padding-top:clamp(3rem,10vw,5.5rem);padding-bottom:clamp(2rem,6vw,3.5rem);gap:1.1rem}
+.orb{position:relative;width:8.5rem;height:8.5rem;margin-bottom:.8rem}
+.orb::before{content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 36% 30%,#fffbe8 0%,#ffe29a 30%,#f0c06a 62%,#c98a3a 100%);
+  box-shadow:0 0 50px 8px rgba(240,192,106,.55),0 0 130px 40px rgba(240,192,106,.22);animation:breathe 5s ease-in-out infinite alternate}
+.orb::after{content:"";position:absolute;inset:-16px;border-radius:50%;border:1px solid var(--line);animation:ring 5s ease-in-out infinite alternate}
+.orb i{position:absolute;inset:-34px;border-radius:50%;border:1px dashed rgba(240,192,106,.2);animation:spin 60s linear infinite}
+@keyframes breathe{to{transform:scale(1.05);box-shadow:0 0 70px 14px rgba(240,192,106,.65),0 0 160px 55px rgba(240,192,106,.28)}}
+@keyframes ring{to{transform:scale(1.07);opacity:.5}}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{margin:0;font-family:var(--f-script);font-weight:400;font-size:clamp(3.2rem,15vw,6.8rem);line-height:1.05;text-wrap:balance;
+  color:var(--gold);
+  background:linear-gradient(100deg,#e9b559 0%,#fff1c7 25%,#e9b559 50%,#fff1c7 75%,#e9b559 100%);background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 22px rgba(240,192,106,.45));animation:shine 8s linear infinite}
+@keyframes shine{to{background-position:200% 0}}
+.to{font-family:var(--f-verse);font-style:italic;font-size:clamp(1.4rem,4.4vw,1.9rem);color:var(--paper)}
+.to b{font-weight:500;color:var(--gold)}
+.divider{display:flex;align-items:center;gap:1rem;color:var(--gold);width:min(16rem,70%);margin-top:.6rem}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line))}
+.divider::after{transform:scaleX(-1)}
+.divider svg{animation:float 4s ease-in-out infinite alternate}
+@keyframes float{to{transform:translateY(-5px) rotate(20deg)}}
+.hint{font-size:.85rem;color:var(--mist);letter-spacing:.08em}
+
+/* Cinta de cualidades */
+.marquee{overflow:hidden;padding-block:.4rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.track{display:flex;width:max-content;animation:slide 40s linear infinite}
+.grp{display:flex;flex-shrink:0}
+.grp b{position:relative;font-family:var(--f-script);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.3;color:var(--gold);padding-inline:1.5rem}
+.grp b::after{content:"\2726";position:absolute;right:-.45rem;top:50%;transform:translateY(-50%);font-family:var(--f-body);font-size:.8rem;color:var(--mist)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* Carta */
+.letter{gap:1.4rem}
+.letter .panel{display:flex;flex-direction:column;gap:1.4rem}
+.salute{font-family:var(--f-script);font-size:clamp(2.6rem,9vw,3.8rem);color:var(--gold);line-height:1.1}
+.letter p.t{font-size:clamp(1.05rem,2.6vw,1.2rem);max-width:60ch}
+.hl{background:linear-gradient(var(--gold),var(--gold)) 0 100%/0% 2px no-repeat;transition:background-size 1.3s ease;padding-bottom:2px}
+.hl.seen{background-size:100% 2px}
+.sign{font-family:var(--f-script);font-size:clamp(1.9rem,6vw,2.4rem);color:var(--gold);line-height:1.25}
+
+/* Cualidades */
+.traits{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0 2.5rem}
+.traits li{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"i t" "i d";column-gap:1rem;row-gap:.1rem;padding-block:1.2rem;border-top:1px solid var(--line);min-width:0}
+.traits svg{grid-area:i;width:2.2rem;height:2.2rem;padding:.45rem;border-radius:50%;background:rgba(240,192,106,.12);border:1px solid var(--line);fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;align-self:start;margin-top:.2rem}
+.traits strong{grid-area:t;font-family:var(--f-verse);font-size:1.6rem;font-weight:500;color:var(--gold);line-height:1.2}
+.traits span{grid-area:d;font-size:1rem;color:var(--paper);opacity:.92}
+
+/* Versículos */
+.verses{align-items:stretch;text-align:center}
+.verses .eyebrow{text-align:center}
+.verses .panel{display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+.verse{margin:0;display:flex;flex-direction:column;align-items:center;gap:1rem;min-height:15rem;justify-content:center;transition:opacity .22s ease,transform .22s ease,filter .22s ease}
+.verse::before{content:"\201C";font-family:var(--f-verse);font-size:5.5rem;line-height:.55;height:2.2rem;color:var(--gold);opacity:.55}
+.verse.out{opacity:0;transform:translateY(8px);filter:blur(4px)}
+.verse blockquote{margin:0;font-family:var(--f-verse);font-style:italic;font-weight:400;font-size:clamp(1.5rem,5vw,2.25rem);line-height:1.35;text-wrap:balance;max-width:34ch}
+.verse figcaption{font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.nav{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:center}
+.arrow{width:2.75rem;height:2.75rem;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--gold);font:inherit;font-size:1.2rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .2s}
+.arrow:hover{background:rgba(240,192,106,.16);transform:scale(1.08)}
+.dot{width:1.5rem;height:2.75rem;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;padding:0}
+.dot::after{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--mist);opacity:.45;transition:all .25s}
+.dot[aria-current="true"]::after{background:var(--gold);opacity:1;transform:scale(1.5)}
+button:focus-visible{outline:3px solid var(--mist);outline-offset:3px}
+
+/* Mensaje sorpresa */
+.gift{align-items:center;text-align:center}
+.gift p.lead{max-width:46ch;opacity:.92}
+.reveal{width:100%;min-height:9rem;display:grid;place-items:center;padding:1.8rem 1.4rem;border:1px solid var(--line);border-radius:20px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(240,192,106,.16),transparent 70%),var(--glass);
+  font-family:var(--f-verse);font-style:italic;font-size:clamp(1.35rem,4.4vw,1.85rem);line-height:1.4;text-wrap:balance}
+.reveal.idle{color:var(--mist);font-family:var(--f-body);font-style:normal;font-size:1rem}
+.reveal.pop{animation:pop .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{transform:scale(.9);filter:blur(6px);opacity:.3}to{transform:none;filter:none;opacity:1}}
+.cta{border:0;cursor:pointer;font:inherit;font-weight:500;font-size:1.02rem;padding:.95rem 1.9rem;border-radius:999px;background:linear-gradient(180deg,#ffd98a,var(--gold));color:var(--night);
+  box-shadow:0 8px 28px rgba(240,192,106,.32);transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(240,192,106,.45)}
+.cta:active{transform:translateY(0)}
+
+/* Bendición final */
+.bless{align-items:center;text-align:center;padding-bottom:clamp(5rem,14vw,8rem)}
+.bless blockquote{margin:0;font-family:var(--f-verse);font-style:italic;font-size:clamp(1.35rem,4.4vw,1.95rem);line-height:1.5;text-wrap:balance;max-width:36ch}
+.bless .ref{font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.final{font-family:var(--f-script);font-size:clamp(2.8rem,11vw,4.6rem);color:var(--gold);line-height:1.1;text-shadow:0 0 28px rgba(240,192,106,.4);text-wrap:balance}
+.small{font-size:.8rem;color:var(--mist);letter-spacing:.04em}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  section.pre{transform:none}
+}
+</style>
+
+<div class="sky" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
+<div class="sun" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main lang="es">
+
+  <header class="hero">
+    <div class="orb" aria-hidden="true"><i></i></div>
+    <p class="eyebrow">Día Internacional del Hombre · 19 de noviembre</p>
+    <h1>Feliz Día del Hombre</h1>
+    <p class="to">para mi hermanito<b id="nombre"></b></p>
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="currentColor"/></svg>
+    </div>
+    <p class="hint">Toca el cielo y baja despacio, hay algo para ti</p>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span class="grp"><b>Fuerte</b><b>Valiente</b><b>Noble</b><b>Trabajador</b><b>Protector</b><b>Leal</b><b>Ejemplo</b></span>
+      <span class="grp"><b>Fuerte</b><b>Valiente</b><b>Noble</b><b>Trabajador</b><b>Protector</b><b>Leal</b><b>Ejemplo</b></span>
+    </div>
+  </div>
+
+  <section class="letter">
+    <p class="eyebrow">Una carta</p>
+    <div class="panel">
+      <p class="salute">Mi hermanito,</p>
+      <p class="t">hoy es tu día y quise dedicarte algo bonito, porque mereces que alguien se detenga a decirte lo que a veces se queda callado en el corazón.</p>
+      <p class="t">Te vi llegar siendo un bebé y te cuidé con todo mi corazón. Vi tus primeros pasos, <span class="hl">te vi crecer</span> y hoy me cuesta creer en el hombre en que te has convertido.</p>
+      <p class="t">Gracias por las risas, por los recuerdos, por los silencios que también dicen mucho y por estar <span class="hl">en los días buenos y en los difíciles</span>. Contigo aprendí que querer a alguien es cuidarlo, aunque pasen los años.</p>
+      <p class="t">Eres fuerte, pero también tienes un corazón noble. Sigues de pie aunque nadie vea el cansancio, y por eso me llena de orgullo verte. <span class="hl">No tienes que demostrarme nada</span>: ya eres mi ejemplo.</p>
+      <p class="t">Hoy te deseo que Dios te cuide, te guíe y llene tu vida de paz. Que lo que sueñas se vuelva realidad y que nunca olvides que <span class="hl">no caminas solo</span>: tu hermana siempre va a estar contigo.</p>
+      <p class="sign">Con todo mi cariño, tu hermana</p>
+    </div>
+  </section>
+
+  <section class="qualities">
+    <p class="eyebrow">Lo que veo en ti</p>
+    <h2>Un hombre de los que se cuentan con una mano</h2>
+    <ul class="traits">
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>
+        <strong>Valiente</strong><span>Enfrentas cada día con la frente en alto, aun cuando nadie ve lo que cargas.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>
+        <strong>Noble</strong><span>Tu corazón es más grande que tu orgullo, y eso te hace distinto.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h5v-5h5v-5h5V5h3"/></svg>
+        <strong>Trabajador</strong><span>Luchas por los tuyos sin quejarte, y se nota en todo lo que haces.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9H4z"/></svg>
+        <strong>Protector</strong><span>Siempre has cuidado de los que quieres, muchas veces antes que de ti.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M8 11h8M5 14a7 7 0 0014 0"/></svg>
+        <strong>Leal</strong><span>Estás en las buenas y, sobre todo, en las malas.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>
+        <strong>Ejemplo</strong><span>Sin darte cuenta, eres alguien a quien otros quieren parecerse.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="verses">
+    <p class="eyebrow">Palabra de Dios para ti</p>
+    <div class="panel">
+      <figure class="verse" id="verse" aria-live="polite">
+        <blockquote id="vtext">Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios será contigo en donde quiera que fueres.</blockquote>
+        <figcaption id="vref">Josué 1:9</figcaption>
+      </figure>
+      <div class="nav">
+        <button class="arrow" id="prev" type="button" aria-label="Versículo anterior">&#8592;</button>
+        <span id="dots" style="display:flex;align-items:center"></span>
+        <button class="arrow" id="next" type="button" aria-label="Versículo siguiente">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="gift">
+    <p class="eyebrow">Un regalo más</p>
+    <h2>Un mensaje escrito para ti</h2>
+    <p class="lead">Cada vez que lo abras saldrá uno distinto. Guarda el que más te guste.</p>
+    <div class="reveal idle" id="reveal" aria-live="polite">Toca el botón y descubre tu mensaje.</div>
+    <button class="cta" id="open" type="button">Abrir un mensaje</button>
+  </section>
+
+  <section class="bless">
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="currentColor"/></svg>
+    </div>
+    <blockquote>Jehová te bendiga, y te guarde: Jehová haga resplandecer su rostro sobre ti, y haya de ti misericordia: Jehová alce sobre ti su rostro, y ponga en ti paz.</blockquote>
+    <p class="ref">Números 6:24-26</p>
+    <p class="final">Dios te bendiga, hermanito</p>
+    <p class="small">Con mis oraciones y todo mi cariño. Citas bíblicas: Reina-Valera 1909.</p>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  // Para personalizar: escribe aquí el nombre de tu hermano, por ejemplo "Carlos".
+  var NOMBRE = "";
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root = document.documentElement;
+
+  if (NOMBRE) document.getElementById("nombre").textContent = ", " + NOMBRE;
+
+  /* ---------- Cielo: estrellas, luciérnagas, fugaces, destellos ---------- */
+  var cv = document.getElementById("fx");
+  var ctx = cv.getContext("2d");
+  var W = 0, H = 0, stars = [], motes = [], sparks = [], shoot = null, progress = 0;
+
+  function rnd() { return Math.random(); }
+
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), i;
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.max(60, Math.min(170, Math.round(W * H / 9000)));
+    stars = [];
+    for (i = 0; i < n; i++) stars.push({ x: rnd() * W, y: rnd() * H, r: rnd() * 1.3 + 0.3, t: rnd() * 6.28, s: 0.5 + rnd() * 1.3 });
+    var m = Math.max(16, Math.min(40, Math.round(W / 14)));
+    motes = [];
+    for (i = 0; i < m; i++) motes.push({ x: rnd() * W, y: rnd() * H, r: 1 + rnd() * 2.2, v: 0.12 + rnd() * 0.32, t: rnd() * 6.28, w: 0.3 + rnd() });
+    draw(0);
+  }
+
+  function star4(x, y, s) {
+    ctx.beginPath();
+    ctx.moveTo(x, y - s); ctx.lineTo(x + s * 0.28, y - s * 0.28); ctx.lineTo(x + s, y);
+    ctx.lineTo(x + s * 0.28, y + s * 0.28); ctx.lineTo(x, y + s); ctx.lineTo(x - s * 0.28, y + s * 0.28);
+    ctx.lineTo(x - s, y); ctx.lineTo(x - s * 0.28, y - s * 0.28); ctx.closePath(); ctx.fill();
+  }
+  function heart(x, y, s) {
+    ctx.beginPath();
+    ctx.moveTo(x, y + s * 0.9);
+    ctx.bezierCurveTo(x - s * 1.3, y - s * 0.1, x - s * 0.6, y - s * 1.1, x, y - s * 0.4);
+    ctx.bezierCurveTo(x + s * 0.6, y - s * 1.1, x + s * 1.3, y - s * 0.1, x, y + s * 0.9);
+    ctx.fill();
+  }
+
+  function draw(ts) {
+    ctx.clearRect(0, 0, W, H);
+    var fade = 1 - progress * 0.85, i, s, a;
+
+    for (i = 0; i < stars.length; i++) {
+      s = stars[i];
+      a = (0.5 + 0.5 * Math.sin(ts / 1000 * s.s + s.t)) * 0.75 * fade + 0.1 * fade;
+      ctx.fillStyle = "rgba(255,244,214," + a.toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832); ctx.fill();
+    }
+
+    for (i = 0; i < motes.length; i++) {
+      s = motes[i];
+      if (!reduce) {
+        s.y -= s.v; s.x += Math.sin(ts / 2200 * s.w + s.t) * 0.18;
+        if (s.y < -10) { s.y = H + 10; s.x = rnd() * W; }
+      }
+      a = 0.25 + 0.25 * Math.sin(ts / 1400 * s.w + s.t);
+      ctx.fillStyle = "rgba(255,214,140," + (a * 0.25).toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r * 3.2, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = "rgba(255,226,170," + (a + 0.2).toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832); ctx.fill();
+    }
+
+    if (!reduce) {
+      if (!shoot && progress < 0.6 && rnd() < 0.0028) {
+        shoot = { x: rnd() * W * 0.7, y: rnd() * H * 0.35, vx: 8, vy: 3.4, life: 44, max: 44 };
+      }
+      if (shoot) {
+        shoot.x += shoot.vx; shoot.y += shoot.vy; shoot.life -= 1;
+        var al = Math.max(0, shoot.life / shoot.max) * (1 - progress);
+        var g = ctx.createLinearGradient(shoot.x, shoot.y, shoot.x - shoot.vx * 9, shoot.y - shoot.vy * 9);
+        g.addColorStop(0, "rgba(255,243,207," + al.toFixed(3) + ")");
+        g.addColorStop(1, "rgba(255,243,207,0)");
+        ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.lineCap = "round";
+        ctx.beginPath(); ctx.moveTo(shoot.x, shoot.y); ctx.lineTo(shoot.x - shoot.vx * 9, shoot.y - shoot.vy * 9); ctx.stroke();
+        if (shoot.life <= 0) shoot = null;
+      }
+    }
+
+    for (i = sparks.length - 1; i >= 0; i--) {
+      s = sparks[i];
+      s.x += s.vx; s.y += s.vy; s.vy += 0.045; s.vx *= 0.992; s.life -= 1;
+      if (s.life <= 0) { sparks.splice(i, 1); continue; }
+      a = (s.life / s.max).toFixed(3);
+      if (s.k === 2) { ctx.fillStyle = "rgba(244,166,160," + a + ")"; heart(s.x, s.y, s.r * 1.7); }
+      else if (s.k === 1) { ctx.fillStyle = "rgba(255,243,207," + a + ")"; star4(s.x, s.y, s.r * 2.4); }
+      else { ctx.fillStyle = "rgba(240,192,106," + a + ")"; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.2832); ctx.fill(); }
+    }
+  }
+
+  function loop(ts) { draw(ts); requestAnimationFrame(loop); }
+
+  function spawn(cx, cy, n, scale) {
+    if (reduce) return;
+    for (var i = 0; i < n; i++) {
+      var ang = rnd() * 6.2832, sp = (1.4 + rnd() * 4.2) * scale, life = 50 + rnd() * 45, r = 1.4 + rnd() * 2.2;
+      sparks.push({ x: cx, y: cy, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 1.6 * scale,
+                    r: r * (0.7 + scale * 0.3), life: life, max: life, k: Math.floor(rnd() * 3) });
+    }
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var max = root.scrollHeight - window.innerHeight;
+      progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      root.style.setProperty("--p", progress.toFixed(4));
+      if (reduce) draw(0);
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("resize", function () { resize(); onScroll(); });
+  window.addEventListener("scroll", onScroll, { passive: true });
+  document.addEventListener("pointerdown", function (e) { spawn(e.clientX, e.clientY, 9, 0.7); });
+  resize(); onScroll();
+  if (!reduce) requestAnimationFrame(loop);
+
+  /* ---------- Secciones suben suavemente; subrayado dorado en la carta ---------- */
+  var secs = document.querySelectorAll("main > section:not(.letter)");
+  var marks = document.querySelectorAll(".hl");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    secs.forEach(function (s) {
+      if (s.getBoundingClientRect().top > window.innerHeight * 0.9) { s.classList.add("pre"); io.observe(s); }
+    });
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("seen"); io2.unobserve(e.target); }
+      });
+    }, { threshold: 0.9 });
+    marks.forEach(function (m) { io2.observe(m); });
+  } else {
+    marks.forEach(function (m) { m.classList.add("seen"); });
+  }
+
+  /* ---------- Versículos ---------- */
+  var V = [
+    { t: "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios será contigo en donde quiera que fueres.", r: "Josué 1:9" },
+    { t: "Todo lo puedo en Cristo que me fortalece.", r: "Filipenses 4:13" },
+    { t: "En todo tiempo ama el amigo; y el hermano para la angustia es nacido.", r: "Proverbios 17:17" },
+    { t: "No temas, que yo soy contigo; no desmayes, que yo soy tu Dios que te esfuerzo: siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia.", r: "Isaías 41:10" },
+    { t: "Hierro con hierro se aguza; y el hombre aguza el rostro de su amigo.", r: "Proverbios 27:17" },
+    { t: "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz, y no de mal, para daros el fin que esperáis.", r: "Jeremías 29:11" },
+    { t: "Jehová te guardará de todo mal: él guardará tu alma. Jehová guardará tu salida y tu entrada, desde ahora y para siempre.", r: "Salmos 121:7-8" }
+  ];
+  var vi = 0, fig = document.getElementById("verse"),
+      vt = document.getElementById("vtext"), vr = document.getElementById("vref"),
+      dotsBox = document.getElementById("dots"), dots = [], busy = false;
+
+  V.forEach(function (_, n) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "dot";
+    b.setAttribute("aria-label", "Versículo " + (n + 1) + " de " + V.length);
+    b.setAttribute("aria-current", n === 0 ? "true" : "false");
+    b.addEventListener("click", function () { go(n); });
+    dotsBox.appendChild(b); dots.push(b);
+  });
+
+  function go(n) {
+    n = (n + V.length) % V.length;
+    if (n === vi || busy) return;
+    busy = true;
+    fig.classList.add("out");
+    setTimeout(function () {
+      vi = n; vt.textContent = V[n].t; vr.textContent = V[n].r;
+      dots.forEach(function (d, k) { d.setAttribute("aria-current", k === n ? "true" : "false"); });
+      fig.classList.remove("out");
+      busy = false;
+    }, reduce ? 0 : 220);
+  }
+  document.getElementById("prev").addEventListener("click", function () { go(vi - 1); });
+  document.getElementById("next").addEventListener("click", function () { go(vi + 1); });
+
+  /* ---------- Mensaje sorpresa ---------- */
+  var M = [
+    "Eres de esos hombres que no hacen ruido, pero dejan huella.",
+    "Que nunca te falten la fe, la paz ni una buena razón para sonreír.",
+    "Gracias por ser mi hermano: cuidarte me enseñó lo que es querer de verdad.",
+    "Tu esfuerzo no pasa desapercibido, y Dios ve cada paso que das.",
+    "Ser fuerte también es descansar, pedir ayuda y dejarse querer. Hoy déjate querer.",
+    "Hay hombres que presumen y hombres que sirven. Tú eres de los que sirven. Gracias.",
+    "Dios me regaló un hermano, y con eso me regaló un amigo para toda la vida.",
+    "Que cada puerta que toques se abra y cada camino que pises te lleve a algo bueno.",
+    "No estás solo. Aquí estoy yo, y arriba Alguien que nunca se cansa de cuidarte.",
+    "Hoy no tienes que ser el fuerte de todos. Hoy eres el festejado.",
+    "Te cuidé cuando eras chiquito, y hoy me toca admirarte. Cómo has crecido, hermanito."
+  ];
+  var last = -1, out = document.getElementById("reveal"), btn = document.getElementById("open");
+  btn.addEventListener("click", function () {
+    var n;
+    do { n = Math.floor(rnd() * M.length); } while (n === last);
+    last = n;
+    out.textContent = M[n];
+    out.classList.remove("idle", "pop");
+    void out.offsetWidth;
+    out.classList.add("pop");
+    btn.textContent = "Otro mensaje";
+    var r = btn.getBoundingClientRect();
+    spawn(r.left + r.width / 2, r.top + r.height / 2, 54, 1.1);
+  });
+})();
+</script>
+
+</body>
+</html>
